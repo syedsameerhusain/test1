@@ -1,0 +1,32 @@
+<body>
+
+</body>
+<template name='mainContent'>
+    <div class="container">
+        <header>
+            <h1>Todo List</h1>
+        </header>
+        {{> addTodo}}
+        <ul>
+            {{> todos}}
+        </ul>
+        {{todosCount}}
+    </div>
+</template>
+<template name="todos">
+    {{#each todo}}
+    {{> todosItem}}
+    {{/each}}
+</template>
+<template name='todosItem'>
+    <li class="{{checked}}">
+        <input type="checkbox" {{checked}}>
+        <input type="text" value="{{name}}" name="todoItem">
+        [<a href="#" class="delete-todo">Delete</a>]
+    </li>
+</template>
+<template name='todosCount'>
+    {{#if totalTodos}}
+    <p>You have completed {{completedTodos}} out of {{totalTodos}} tasks.</p>
+    {{/if}}
+</template>
